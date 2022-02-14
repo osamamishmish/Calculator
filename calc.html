@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/calc.css" rel="stylesheet" >
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container col-md-4 col-sm-9 the-header d-flex justify-content-center">
+        <p class="d-flex justify-content-start">Calc</p>
+        <div class="theme d-flex ms-auto">
+        <label for="customRange3" class="form-label">Theme</label>
+       <input type="range" class="form-range" min="1" max="3" step="1" id="customRange3">
+    </div>
+</div>
+<div class="container the-monitor col-md-4 col-sm-9 d-flex justify-content-center">
+    <input type="text" class="the-field">
+</div>
+<div class="container col-md-4 col-sm-9 buttons">
+    <div class="grid">
+        <button class=" g-col button">7</button>
+        <button class="g-col button">8</button>
+        <button class="g-col button">9</button>
+        <button class="g-col button ">Del</button>
+    </div>
+    <div class="grid">
+        <button class="g-col button">4</button>
+        <button class="g-col button">5</button>
+        <button class="g-col button">6</button>
+        <button class="g-col button operator">+</button>
+    </div>
+    <div class="grid">
+        <button class="g-col button">1</button>
+        <button class="g-col button">2</button>
+        <button class="g-col button">3</button>
+        <button class="g-col button operator">-</button>
+    </div>
+    <div class="grid">
+        <button class="g-col button">.</button>
+        <button class="g-col button">0</button>
+        <button class="g-col button operator">/</button>
+        <button class="g-col button operator">*</button>
+    </div>
+    <div class="grid">
+        <button class="g-col reset btn btn-secondary">Reset</button>
+        <button class="g-col result btn btn-danger">=</button>
+        
+    </div>
+</div>
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>    
+    <script src="js/calc.js" ></script>    
+</body>
+</html>

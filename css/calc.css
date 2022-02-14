@@ -1,0 +1,26 @@
+.form-range{
+    width:50px;
+    margin-left:20px;
+}
+.the-header{
+    margin-top:100px;
+}
+.the-field{
+    border-radius:5px;
+    width:100%;
+    height:50px;
+}
+button{
+    width:20%;
+    margin:10px;
+}
+.reset{
+    width:45%;
+}
+.result{
+    width:45%;
+}
+.operator{
+    width:20%;
+    margin:10px;
+}
