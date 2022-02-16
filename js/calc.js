@@ -1,16 +1,13 @@
-var arr=[];
+var arr="";
 var operator=[];
-let arr2;
-let firstNumber;
-let secondNumber;
+let firstNumber=[];
+let secondNumber=[];
 let z;
 //let secondNumber=[];
 $(document).ready(function(){
     $(".button").on("click",function(){
-        arr.push($(this).text());
-      arr2=  arr.join(" ");
-       $(".the-field").val(arr2);
-       
+        arr+=$(this).text();
+       $(".the-field").val(arr);
       if($(this).text()=="+"){
         operator.push("+");
         
@@ -23,32 +20,149 @@ $(document).ready(function(){
         operator.push("/");
        
     }
+    var numbers= arr.split(operator[0]);
+    firstNumber[0]=numbers[0];
+    secondNumber[0]=numbers[1];
     })
     
 })
 
+
+/*$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(firstNumber.length==1&&secondNumber.length==1){
+
+        }
+
+    })
+})*/
+//THE SUM
+
 $(document).ready(function(){
     $(".result").on("click",function(){
-      for(let index=0 ;index<operator.length;index++){
-        var numbers= arr2.split(operator[index]);
-        firstNumber=numbers[index];
-        secondNumber=numbers[index+1];
-       console.log(firstNumber);
-       console.log(secondNumber);
-        if(operator[0]=="+"){
-            z=parseInt(firstNumber)+parseInt(secondNumber);
-           return $(".the-field").val(z);
+        if(operator=="+"){
+           z=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+            $(".the-field").val(z.toFixed(2));
+          arr="";
+          firstNumber=[];
+           secondNumber=[];
+           operator=[];
+           arr+=z;
+            
 
         }  
-       
-      
-      }
-        
-            
-            
     })
 })
-console.log(arr2);
+
+
+
+//(-)
+$(document).ready(function(){
+    $(".result").on("click",function(){
+        if(operator=="-"){
+            z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            $(".the-field").val(z.toFixed(2));
+          arr="";
+          firstNumber=[];
+           secondNumber=[];
+           operator=[];
+           arr+=z;
+            
+
+        }   
+    })
+})
+
+//("*")
+$(document).ready(function(){
+    $(".result").on("click",function(){
+        if(operator=="*"){
+            z=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+            $(".the-field").val(z.toFixed(2));
+          arr="";
+          firstNumber=[];
+           secondNumber=[];
+           operator=[];
+           arr+=z;
+            
+
+        }   
+    })
+})
+
+
+//("/")
+$(document).ready(function(){
+    $(".result").on("click",function(){
+        if(operator=="/"){
+            z=parseFloat(firstNumber[0])/parseFloat(secondNumber[0])
+            $(".the-field").val(z.toFixed(2));
+          arr="";
+          firstNumber=[];
+           secondNumber=[];
+           operator=[];
+           arr+=z;
+            
+
+        }   
+    })
+})
+
+/*$(document).ready(function(){
+    
+    $(".operator").on("click",function(){
+        if(firstNumber.length==1&&secondNumber.length==1){
+     arr+=$(".operator").text();
+     operator.push($(".operator").text());   
+    if(operator[0]=="+"){
+        z=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+        $(".the-field").val(z,operator[1]);
+        operator.shift();
+        arr="";
+        firstNumber=[];
+         secondNumber=[];
+         arr+=z;
+         arr+=operator[1] 
+         $(".the-field").val(arr);
+    }
+    if(operator[0]=="-"){
+        z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+        $(".the-field").val(z);
+        operator.shift();
+        arr="";
+        firstNumber=[];
+         secondNumber=[];
+         arr+=z;
+         arr+=operator[0] 
+    }
+    if(operator[0]=="*"){
+        z=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+        $(".the-field").val(z);
+        operator.shift();
+        arr="";
+        firstNumber=[];
+         secondNumber=[];
+         arr+=z;
+         arr+=operator[0] 
+    }
+    if(operator[0]=="/"){
+        z=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+        $(".the-field").val(z);
+        operator.shift();
+        arr="";
+        firstNumber=[];
+         secondNumber=[];
+         arr+=z;
+         arr+=operator[0]
+    }
+        
+       
+         
+}     
+})
+
+})*/
 console.log("operator",operator);
 console.log("arr",arr);
-
+console.log("firstNumber",firstNumber);
+console.log("secondNumber",secondNumber);
