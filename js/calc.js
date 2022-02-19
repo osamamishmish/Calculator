@@ -30,7 +30,6 @@ $(document).ready(function(){
 
 
 //THE SUM
-let i = 0;
 $(document).ready(function(){
     $(".result").on("click",function(){
              
@@ -99,7 +98,7 @@ $(document).ready(function(){
             let equationTerms= arr.split(operator[0]);
             firstNumber[0]=equationTerms[0];
             secondNumber[0]=equationTerms[1];
-            z=parseFloat(firstNumber[0])/sparseFloat(secondNumber[0]);
+            z=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
             $(".the-field").val(z);
           arr="";
           firstNumber=[];
@@ -111,6 +110,23 @@ $(document).ready(function(){
     })
 })
 
+
+//long equation
+$(document).ready(function(){
+    
+        $(".result").on("click",function(){
+            if(operator.length>1){
+            z=eval(arr);
+        $(".the-field").val(z);
+        arr="";
+           operator=[];
+           arr+=z;
+           
+       
+    }
+})
+    
+})
 
 console.log("operator",operator);
 console.log("arr",arr);
