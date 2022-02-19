@@ -146,6 +146,13 @@ $(document).ready(function(){
     $(".result").on("click",function(){
         z=eval(theLast);
         $(".the-field").val(z);
+        numbers="";
+        theLast="";
+        firstNumber=[];
+        secondNumber=[];
+        operator=[];
+        theLast+=z;
+        
     })
     })
     
