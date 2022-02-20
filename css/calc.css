@@ -11,21 +11,24 @@
     width:100%;
     height:50px;
 }
-button{
+.button{
     width:20%;
     margin:10px;
 }
 .reset{
     width:45%;
+    
 }
 .result{
     width:45%;
+    
 }
 .operator{
     width:20%;
     margin:10px;
 }
 .buttons{
+    
     border-radius: 15px;
     margin-top:15px;
    
@@ -34,5 +37,22 @@ button{
 .delete{
     width:20%;
     margin:10px;
+    
+}
+.footer{
+    padding-bottom:15px;
+    display:flex;
+    justify-content:space-around;
+}
+@media (min-width:765px) and (max-width:1488px){
+    .button{
+        margin:5px;
+    }
+    
+    .buttons{
+      padding-left:auto;
+      padding-right: auto;
+    }
+    
     
 }
