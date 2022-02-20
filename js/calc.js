@@ -171,6 +171,111 @@ $(document).ready(function(){
     })
 })
 
+
+//THEMES
+$(document).ready(function(){
+    document.body.style.background="hsl(222, 26%, 31%)";
+            $(".buttons").css("background","hsl(223, 31%, 20%)");
+            $(".the-field").css({
+                "background":"hsl(224, 36%, 15%)",
+                "color":"white",
+                "fontSize":"20px",
+                "paddingLeft":"20px",
+            });
+            $(".button").css({
+                "color":"hsl(224, 36%, 15%)",
+                "background":"white",
+                "fontSize":"20px",
+            })
+            $(".delete ,.reset").css({
+                "background":"hsl(222, 26%, 31%)",
+                "color":"white",
+            });
+            $(".the-header").css({
+                "color":"white",
+                "fontSize":"20px",
+            });
+    $(".form-range").on("click",function(){
+        if($(".form-range").val()==2){
+            document.body.style.background="hsl(0, 0%, 90%)";
+            $(".buttons").css("background","hsl(0, 5%, 81%)");
+            $(".the-field").css({
+                "background":"hsl(0, 0%, 93%)",
+                "color":"black",
+                "fontSize":"20px",
+                "paddingLeft":"20px",
+            });
+            $(".button,.delete").css({
+                "color":"black",
+                "background":"white",
+                "fontSize":"20px",
+            });
+            $(".the-header").css({
+                "color":"black",
+                "fontSize":"20px",
+            });
+            $(".reset,.delete").css({
+                "background":"hsl(185, 42%, 37%)",
+                "color":"white",
+            })
+            $(".result").css({
+                "background":"hsl(25, 98%, 40%)",
+                "color":"white",
+            })
+        }if($(".form-range").val()==1){
+            document.body.style.background="hsl(222, 26%, 31%)";
+            $(".buttons").css("background","hsl(223, 31%, 20%)");
+            $(".the-field").css({
+                "background":"hsl(224, 36%, 15%)",
+                "color":"white",
+                "fontSize":"20px",
+                "paddingLeft":"20px",
+            });
+            $(".button").css({
+                "color":"hsl(224, 36%, 15%)",
+                "background":"white",
+                "fontSize":"20px",
+            })
+            $(".delete,.reset").css({
+                "background":"hsl(222, 26%, 31%)",
+                "color":"white",
+            });
+            $(".the-header").css({
+                "color":"white",
+                "fontSize":"20px",
+            });
+            $(".result").toggleClass("btn-danger");
+        }if($(".form-range").val()==3){
+            document.body.style.background="hsl(268, 75%, 9%)";
+            $(".buttons").css("background","hsl(268, 71%, 12%)");
+            $(".the-field").css({
+               "background":"hsl(268, 71%, 12%)",
+                "color":"hsl(52, 100%, 62%)",
+                "fontSize":"20px",
+                "paddingLeft":"20px",
+            })
+            $(".button , .delete").css({
+                "color":"hsl(52, 100%, 62%)",
+                "background":"hsl(281, 89%, 26%)",
+                "fontSize":"20px",
+            })
+            $(".the-header").css({
+                "color":"hsl(52, 100%, 62%)",
+                "fontSize":"20px",
+            })
+            $(".reset,.delete").css({
+                "background":"hsl(185, 42%, 37%)",
+                "color":"white",
+            })
+            $(".result").css({
+                "background":"hsl(25, 98%, 40%)",
+                "color":"white",
+            })
+        }
+    })
+    
+})
+
 console.log("operator",operator);
 console.log("numbers",numbers);
 console.log("firstNumber",firstNumber);
