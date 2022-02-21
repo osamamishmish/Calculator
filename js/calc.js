@@ -276,6 +276,18 @@ $(document).ready(function(){
     
 })
 
+
+//add the numbers and calculate the result by keyboard
+$(document).ready(function(){
+    $(".the-field").on("keyup",function(e){
+    if(e.keyCode===13){
+        z=eval($(".the-field").val());
+        return $(".the-field").val(z);
+    }
+    
+        
+    })
+})
 console.log("operator",operator);
 console.log("numbers",numbers);
 console.log("firstNumber",firstNumber);
