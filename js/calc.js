@@ -277,17 +277,49 @@ $(document).ready(function(){
 })
 
 
-//add the numbers and calculate the result by keyboard
+//add the equation terms by keyboard
 $(document).ready(function(){
     $(".the-field").on("keyup",function(e){
-    if(e.keyCode===13){
-        z=eval($(".the-field").val());
-        return $(".the-field").val(z);
+        numbers+=$(this).val();
+   if(e.keyCode===107){
+        operator.push("+");
+    }if(e.keyCode===111){
+        operator.push("/");
+    }if(e.keyCode===106){
+        operator.push("*");
+    }if(e.keyCode===109){
+        operator.push("-");
     }
-    
+   })
+})
+
+//calculate the Result by enter
+$(document).ready(function(){
+    $(".the-field").on("keyup",function(event){
+        if(event.keyCode===13){
+            z=eval($(".the-field").val());
+            $(".the-field").val(z);
+            numbers="";
+            firstNumber=[];
+            secondNumber=[];
+            operator=[];
+            numbers+=z;
+          
+        }
         
     })
 })
+
+
+/*$(documnet).ready(function(){
+    $(".the-field").on("keyup",function(e){
+        if(e.keyCode===8){
+            let theDeleted=numbers.slice(0,-1);
+            numbers=theDeleted;
+            $(".the-field").val(numbers);
+        }
+    })
+})*/
 console.log("operator",operator);
 console.log("numbers",numbers);
 console.log("firstNumber",firstNumber);
