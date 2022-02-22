@@ -135,25 +135,19 @@ $(document).ready(function(){
 //Deleting by DEL button
 $(document).ready(function(){
     $(".delete").on("click",function(){
-    let theLast=numbers.slice(0,-1);
-     $(".the-field").val(theLast);
-    $(".button").on("click",function(){
-        theLast+=$(this).text();
-        $(".the-field").val(theLast);
-        
-        
-    })
-    $(".result").on("click",function(){
-        z=eval(theLast);
-        $(".the-field").val(z);
+    if(numbers.length>1){
+         var theLast=numbers.slice(0,-1);
+         console.log(theLast);
         numbers="";
-        theLast="";
+        numbers+=theLast;
+        $(".the-field").val(numbers);
+    }if(numbers.length=="1"){
+        numbers="";
         firstNumber=[];
         secondNumber=[];
         operator=[];
-        theLast+=z;
-        
-    })
+        $(".the-field").val(numbers);
+    }
     })
     
 })
@@ -332,16 +326,19 @@ $(document).ready(function(){
 })
 
 
-
-/*var del=document.querySelector(".delete");
+//DELETE BY backspace
+var del=document.querySelector(".delete");
 $(document).ready(function(){
-    theField.addEventListener("keypress",function(deleted){
-        if(deleted.keyCode===8){
+    $(theField).on("keyup",function(event){
+        if(event.keyCode===8){
         return    del.click(); 
         }
         
     })
-})*/
+})
+
+
+
 console.log("operator",operator);
 console.log("numbers",numbers);
 console.log("firstNumber",firstNumber);
