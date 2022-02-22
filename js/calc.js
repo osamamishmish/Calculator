@@ -280,44 +280,66 @@ $(document).ready(function(){
 //add the equation terms by keyboard
 $(document).ready(function(){
     $(".the-field").on("keyup",function(e){
-        numbers+=$(this).val();
+        if(e.keyCode===96){
+            numbers+="0";
+        }if(e.keyCode===97){
+            numbers+="1";
+        }if(e.keyCode===98){
+            numbers+="2";
+        }if(e.keyCode===99){
+            numbers+="3";
+        }if(e.keyCode===100){
+            numbers+="4";
+        }if(e.keyCode===101){
+            numbers+="5";
+        }if(e.keyCode===102){
+            numbers+="6";
+        }if(e.keyCode===103){
+            numbers+="7";
+        }if(e.keyCode===104){
+            numbers+="8";
+        }if(e.keyCode===105){
+            numbers+="9";
+        }
    if(e.keyCode===107){
         operator.push("+");
+        numbers+="+";
     }if(e.keyCode===111){
         operator.push("/");
+        numbers+="/";
     }if(e.keyCode===106){
         operator.push("*");
+        numbers+="*";
     }if(e.keyCode===109){
         operator.push("-");
+        numbers+="-";
     }
    })
 })
 
-//calculate the Result by enter
+
+//calculate result by Enter
+var theResult=document.querySelector(".result");
+var theField=document.querySelector(".the-field");
+
 $(document).ready(function(){
-    $(".the-field").on("keyup",function(event){
+    theField.addEventListener("keypress",function(event){
         if(event.keyCode===13){
-            z=eval($(".the-field").val());
-            $(".the-field").val(z);
-            numbers="";
-            firstNumber=[];
-            secondNumber=[];
-            operator=[];
-            numbers+=z;
-          
+        return    theResult.click(); 
         }
         
     })
 })
 
 
-/*$(documnet).ready(function(){
-    $(".the-field").on("keyup",function(e){
-        if(e.keyCode===8){
-            let theDeleted=numbers.slice(0,-1);
-            numbers=theDeleted;
-            $(".the-field").val(numbers);
+
+/*var del=document.querySelector(".delete");
+$(document).ready(function(){
+    theField.addEventListener("keypress",function(deleted){
+        if(deleted.keyCode===8){
+        return    del.click(); 
         }
+        
     })
 })*/
 console.log("operator",operator);
