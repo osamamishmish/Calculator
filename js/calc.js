@@ -2,7 +2,20 @@ var numbers="";
 var operator=[];
 let firstNumber=[];
 let secondNumber=[];
+let m=[];
+let d=[];
+let p=[];
+let s=[];
+let firstPlus=[];
+let secondPlus=[];
+let firstSubtract=[];
+let secondSubtract=[];
+let firstDivide=[];
+let secondDivide=[];
+let firstMultiple=[];
+let secondMultiple=[];
 let z;
+
 
 $(document).ready(function(){
     $(".button").on("click",function(){
@@ -30,47 +43,6 @@ $(document).ready(function(){
 
 
 
-//THE SUM
-$(document).ready(function(){
-    $(".result").on("click",function(){
-             
-             if(operator.length==1&&operator[0]=="+"){
-                let equationTerms= numbers.split(operator[0]);
-                firstNumber[0]=equationTerms[0];
-                secondNumber[0]=equationTerms[1];
-                z=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
-                $(".the-field").val(z);
-              numbers="";
-              firstNumber=[];
-               secondNumber=[];
-               operator=[];
-               numbers+=z;
-               
-             }
-        
-    })
-})
-
-
-
-//(-)
-$(document).ready(function(){
-    $(".result").on("click",function(){
-        if(operator.length==1&&operator[0]=="-"){
-            let equationTerms= numbers.split(operator[0]);
-            firstNumber[0]=equationTerms[0];
-            secondNumber[0]=equationTerms[1];
-            z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
-            $(".the-field").val(z);
-          numbers="";
-          firstNumber=[];
-           secondNumber=[];
-           operator=[];
-           numbers+=z;
-           
-         }
-    })
-})
 
 //("*")
 $(document).ready(function(){
@@ -87,9 +59,11 @@ $(document).ready(function(){
            operator=[];
            numbers+=z;
            
+         
          }
     })
 })
+
 
 
 //("/")
@@ -112,22 +86,195 @@ $(document).ready(function(){
 })
 
 
-//long equation
+
+
+//THE SUM
 $(document).ready(function(){
-    
-        $(".result").on("click",function(){
-            if(operator.length>1){
-            z=eval(numbers);
-        $(".the-field").val(z);
-        numbers="";
+    $(".result").on("click",function(){
+             
+             if(operator.length==1&&operator.indexOf("+")!==-1){
+                let equationTerms= numbers.split("+");
+                firstNumber[0]=equationTerms[0];
+                secondNumber[0]=equationTerms[1];
+                z=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+                $(".the-field").val(z);
+              numbers="";
+              firstNumber=[];
+               secondNumber=[];
+               operator=[];
+               numbers+=z;
+               
+             
+             }
+        
+    })
+})
+
+
+
+//(-)
+$(document).ready(function(){
+    $(".result").on("click",function(){
+        if(operator.length==1&&operator.indexOf("-")!==-1){
+            let equationTerms= numbers.split("-");
+            firstNumber[0]=equationTerms[0];
+            secondNumber[0]=equationTerms[1];
+            z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            $(".the-field").val(z);
+          numbers="";
+          firstNumber=[];
+           secondNumber=[];
            operator=[];
            numbers+=z;
            
+         }
+    })
+})
+
+
+
+//("*") in long equations
+$(document).ready(function(){
+    $(".button").on("click",function(){
+        if(operator[0]=="*"&&operator.length==2){
+            let theMultiple=numbers.indexOf("*");
+                let theMultipleSlice=numbers.slice(theMultiple-1,theMultiple+2);
+                let  equationTerms=theMultipleSlice.split("*");
+                firstNumber[0]=equationTerms[0];
+                secondNumber[0]=equationTerms[1];
+                m.push(parseFloat(firstNumber[0])*parseFloat(secondNumber[0]));
+               numbers.replace(numbers.charAt(numbers.indexOf(firstNumber[0])),"");
+                 numbers.replace(numbers.charAt(numbers.indexOf(secondNumber[0])),"");
+                 numbers.replace(numbers.charAt(numbers.indexOf(operator[0])),"");
+                 let multipleIndex=operator.indexOf("*");
+                 //let deleteFromNum=numbers.indexOf("*");
+                 
+                 operator.splice(multipleIndex,1);
+                 firstNumber=[];
+                 secondNumber=[];
+              // return  $(".the-field").val(m[0]+operator[0]);
+              numbers=m[0]+operator[0];
+               return  $(".the-field").val(numbers);
+        }else{
+            let multipleIndex=operator.indexOf("*");
+            if(multipleIndex>0&&operator.length>2){
+                let theMultiple=numbers.indexOf("*");
+                let theMultipleSlice=numbers.slice(theMultiple-1,theMultiple+2);
+                let  equationTerms=theMultipleSlice.split("*");
+                firstNumber[0]=equationTerms[0];
+                secondNumber[0]=equationTerms[1];
+                m.push(parseFloat(firstNumber[0])*parseFloat(secondNumber[0]));
+            numbers=numbers.slice(0,theMultiple-1);
+            console.log(numbers);
+                 let multipleIndex=operator.indexOf("*");
+                 operator.splice(multipleIndex,1);
+                 firstNumber=[];
+                 secondNumber=[];
+                  z= numbers+m[0]+operator[operator.length-1]
+                 $(".the-field").val(z);
+                 numbers=z;
+                 
+            }
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+    $(".result").on("click",function(){
+            if(operator.length>1){
+               
+                
+                console.log("terms",equationTerms[0]);
+                 
+                /* firstNumber[0]=m;
+                 secondNumber=[];*/
+                 console.log("m",m);
+                // let multiple=m.toString();
+                
+                 
+                
+              /*  }else{
+                    m=0;
+                    
+                }*/
+                 
+               /* let multipleIndex=operator.indexOf("*");
+                operator.splice(multipleIndex,1);*/
+                 let theDivision=numbers.indexOf("/");
+                 let theDivisionSlice=numbers.slice(theDivision-1,theDivision+2);
+                 equationTerms=theDivisionSlice.split("/");
+                 firstNumber[0]=m[0];
+                 secondNumber[0]=equationTerms[1];
+                  d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                //  let divide=d.toString();
+                 numbers.replace(numbers.charAt(numbers.indexOf(firstNumber[0])),d[0]);
+                 numbers.replace(numbers.charAt(numbers.indexOf(secondNumber[0])),"");
+                 firstNumber=[];
+                 secondNumber=[];
+                 let divideIndex=operator.indexOf("/");
+                 operator.splice(divideIndex,1);
+                let theSummation=numbers.indexOf("+");
+                    let theSumSlice=numbers.slice(theSummation-1,theSummation+2);
+                    equationTerms=theSumSlice.split("+");
+                    firstNumber[0]=d[0];
+                    secondNumber[0]=equationTerms[1];
+                     p[0]=parseFloat(firstNumber[0])+parseFloat(secondPlus[0]);
+                     //let plus=p.toString();
+                     numbers.replace(numbers.charAt(numbers.indexOf(firstNumber[0])),p[0]);
+                     numbers.replace(numbers.charAt(numbers.indexOf(secondNumber[0])),"");
+                    firstNumber=[];
+                    secondNumber=[];
+                    let sumIndex=operator.indexOf("+");
+                    operator.splice(sumIndex,1);
+
+                    let theSubstract=numbers.indexOf("-");
+                    let theSubstractSlice=numbers.slice(theSubstract-1,theSubstract+2);
+                    equationTerms=theSubstractSlice.split("-");
+                    firstNumber[0]=p[0];
+                    secondNumber[0]=equationTerms[1];
+                    // s=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+                   //  firstNumber[0]=[s];
+                    // secondNumber=[];
+                     z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+                     numbers="";
+                     firstNumber=[];
+                     secondNumber=[];
+                     operator=[];
+                     numbers+=z;
+                     return $(".the-field").val(z);
+            }
        
+    })
+})
+
+
+
+
+
+
+
+//long equation
+/*$(document).ready(function(){
+        $(".result").on("click",function(){
+            if(operator.length>1){
+            
+            z=m+d-s;
+            return $(".the-field").val(z);       
     }
 })
     
-})
+})*/
 
 
 
@@ -212,7 +359,7 @@ $(document).ready(function(){
                 "background":"hsl(185, 42%, 37%)",
                 "color":"white",
             })
-            $(".result").css({
+            $(".result").removeClass("btn-danger").css({
                 "background":"hsl(25, 98%, 40%)",
                 "color":"white",
             })
@@ -238,7 +385,7 @@ $(document).ready(function(){
                 "color":"white",
                 "fontSize":"20px",
             });
-            $(".result").toggleClass("btn-danger");
+            $(".result").addClass("btn-danger");
         }if($(".form-range").val()==3){
             document.body.style.background="hsl(268, 75%, 9%)";
             $(".buttons").css("background","hsl(268, 71%, 12%)");
@@ -261,7 +408,7 @@ $(document).ready(function(){
                 "background":"hsl(185, 42%, 37%)",
                 "color":"white",
             })
-            $(".result").css({
+            $(".result").removeClass("btn-danger").css({
                 "background":"hsl(25, 98%, 40%)",
                 "color":"white",
             })
