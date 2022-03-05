@@ -2,10 +2,10 @@ var numbers="";
 var operator=[];
 let firstNumber=[];
 let secondNumber=[];
-let m=[];
-let d=[];
-let p=[];
-let s=[];
+let m=[0];
+let d=[0];
+let p=[0];
+let s=[0];
 let theLast=[];
 let theFirst=[];
 let z;
@@ -145,7 +145,7 @@ $(document).ready(function(){
                   numbers+=m[0]+operator[0];
                   
                   $(".the-field").val(numbers);
-               m=[];
+               m=[0];
                 }else if(operator.length>2&&indexOfOperator>0&&$(this).text()!=="*"){
 
                 let sliceStart=numbers.indexOf(operator[indexOfOperator-1]);
@@ -167,7 +167,7 @@ $(document).ready(function(){
                  $(".the-field").val(numbers);
                  firstNumber=[];
                  secondNumber=[];
-                   m=[];
+                   m=[0];
                    
             
            
@@ -200,7 +200,7 @@ $(document).ready(function(){
                         firstNumber=[];
                         secondNumber=[];
                         $(".the-field").val(numbers);   
-                        d=[]; 
+                        d=[0]; 
                    }else if(operator.length>2&&indexOfDivide>0&&$(this).text()!=="/"){
 
                             let sliceStart=numbers.indexOf(operator[indexOfDivide-1]);
@@ -224,7 +224,7 @@ $(document).ready(function(){
                     $(".the-field").val(numbers);
                     firstNumber=[];
                     secondNumber=[];
-                      d=[];
+                      d=[0];
                       
        
         }    
@@ -235,7 +235,7 @@ $(document).ready(function(){
 
 
 //sum in long equations
-/*$(document).ready(function(){
+$(document).ready(function(){
     $(".operator").on("click",function(){
         if(operator.length>1&&operator[0]=="+"&&$(this).text()=="+"){
             let end=numbers.indexOf(operator[-1]);
@@ -254,13 +254,102 @@ $(document).ready(function(){
                 $(".the-field").val(numbers);
                 firstNumber=[];
                 secondNumber=[];
-        }else if(operator.length>2&&)
+        }
     })
-})*/
+})
 
 
 
 
+//sum  in long equations
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>1&&operator[0]=="+"&&$(this).text()=="-"){
+            let end=numbers.indexOf(operator[-1]);
+            let theSlice=numbers.slice(0,end);
+            let theSumEquation=theSlice.split("+");
+            firstNumber[0]=theSumEquation[0];
+            secondNumber[0]=theSumEquation[1];
+                z=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+
+                
+                operator.splice(operator.indexOf(operator[0]),1);
+                numbers="";
+                numbers+=z
+                numbers+=operator[0];
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+
+
+
+//difference in long equations
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>1&&operator[0]=="-"&&$(this).text()=="-"){
+            let end=numbers.indexOf(operator[-1]);
+            let theSlice=numbers.slice(0,end);
+            let theSumEquation=theSlice.split("-");
+            firstNumber[0]=theSumEquation[0];
+            secondNumber[0]=theSumEquation[1];
+                z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+
+                
+                operator.splice(operator.indexOf(operator[0]),1);
+                numbers="";
+                numbers+=z
+                numbers+=operator[0];
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+
+
+
+//difference in long equations
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>1&&operator[0]=="-"&&$(this).text()=="+"){
+            let end=numbers.indexOf(operator[-1]);
+            let theSlice=numbers.slice(0,end);
+            let theSumEquation=theSlice.split("-");
+            firstNumber[0]=theSumEquation[0];
+            secondNumber[0]=theSumEquation[1];
+                z=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+
+                
+                operator.splice(operator.indexOf(operator[0]),1);
+                numbers="";
+                numbers+=z
+                numbers+=operator[0];
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+
+
+
+
+//long equations
 $(document).ready(function(){
     $(".result").on("click",function(){
         if(operator.length>2&&operator[0]=="+"&&operator[1]=="-"){
@@ -273,30 +362,47 @@ $(document).ready(function(){
             console.log(firstNumber[0]);
             console.log(secondNumber[0]);
            if(operator[operator.length-1]=="*"){
-                theLast[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+                m[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
                operator.splice(-1,1);
+               let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+               let theFirstEqu=theFirstSlice.split("+");
+               firstNumber[0]=theFirstEqu[0];
+               secondNumber[0]=theFirstEqu[1];
+                theFirst[0]=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+               numbers="";
+               z=parseFloat(theFirst)-parseFloat(m[0]);
+               numbers+=z;
+               $(".the-field").val(numbers);
+             firstNumber=[];
+             secondNumber=[];
+             operator=[];
+               m=[0];
+
+            
+            }if(operator[operator.length-1]=="/"){
+                d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                operator.splice(-1,1);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+               let theFirstEqu=theFirstSlice.split("+");
+               firstNumber[0]=theFirstEqu[0];
+               secondNumber[0]=theFirstEqu[1];
+                theFirst[0]=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+               numbers="";
+               z=parseFloat(theFirst)-parseFloat(d[0]);
+               numbers+=z;
+               $(".the-field").val(numbers);
+             firstNumber=[];
+             secondNumber=[];
+             operator=[];
                firstNumber=[];
                secondNumber=[];
-            }if(operator[operator.length-1]=="/"){
-                theLast[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
-                operator.splice(-1,1);
-                firstNumber=[];
-               secondNumber=[];
+               theFirst=[];
+               d=[0];
+               
+               
             }
-            let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
-            let theFirstEqu=theFirstSlice.split("+");
-            firstNumber[0]=theFirstEqu[0];
-            secondNumber[0]=theFirstEqu[1];
-             theFirst[0]=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
-            numbers="";
-            z=parseFloat(theFirst)-parseFloat(theLast[0]);
-            numbers+=z;
-            $(".the-field").val(numbers);
-          firstNumber=[];
-          secondNumber=[];
-          operator=[];
-          theLast=[];
-          theFirst=[];
+           
+        
 
             
         }
@@ -305,7 +411,7 @@ $(document).ready(function(){
 })
 
 
-
+//long equations
 $(document).ready(function(){
     $(".result").on("click",function(){
         if(operator.length>2&&operator[0]=="+"&&operator[1]=="+"){
@@ -320,35 +426,50 @@ $(document).ready(function(){
             let theLastEquation=theSlice.split("*");
             firstNumber[0]=theLastEquation[0];
             secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
-               operator.splice(-1,1);
-               firstNumber=[];
-               secondNumber=[];
-            }if(operator[operator.length-1]=="/"){
-                let theLastEquation=theSlice.split("/");
-            firstNumber[0]=theLastEquation[0];
-            secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
-                operator.splice(-1,1);
-                firstNumber=[];
-               secondNumber=[];
-            }
-            console.log(operator);
-            let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+                m[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
             let theFirstEqua=theFirstSlice.split("+");
             firstNumber[0]=theFirstEqua[0];
             secondNumber[0]=theFirstEqua[1];
              theFirst[0]=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
             console.log(theFirst);
             numbers="";
-            z=parseFloat(theFirst[0])+parseFloat(theLast[0]);
+            z=parseFloat(theFirst[0])+parseFloat(m[0]);
             numbers+=z;
             $(".the-field").val(numbers);
           firstNumber=[];
           secondNumber=[];
           operator=[];
-          theLast=[];
+         
           theFirst=[];
+               operator.splice(-1,1);
+              m=[0];
+            }if(operator[operator.length-1]=="/"){
+                let theLastEquation=theSlice.split("/");
+            firstNumber[0]=theLastEquation[0];
+            secondNumber[0]=theLastEquation[1];
+                d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+            let theFirstEqua=theFirstSlice.split("+");
+            firstNumber[0]=theFirstEqua[0];
+            secondNumber[0]=theFirstEqua[1];
+             theFirst[0]=parseFloat(firstNumber[0])+parseFloat(secondNumber[0]);
+            console.log(theFirst);
+            numbers="";
+            z=parseFloat(theFirst[0])+parseFloat(d[0]);
+            numbers+=z;
+            $(".the-field").val(numbers);
+          firstNumber=[];
+          secondNumber=[];
+          operator=[];
+         
+          theFirst=[];
+          d=[0];
+                operator.splice(-1,1);
+                
+            }
+
+            
 
             
         }
@@ -356,9 +477,9 @@ $(document).ready(function(){
     })
 })
 
-console.log(theLast);
 
 
+//long equations
 $(document).ready(function(){
     $(".result").on("click",function(){
         if(operator.length>2&&operator[0]=="-"&&operator[1]=="-"){
@@ -373,35 +494,49 @@ $(document).ready(function(){
             let theLastEquation=theSlice.split("*");
             firstNumber[0]=theLastEquation[0];
             secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
-               operator.splice(-1,1);
-               firstNumber=[];
-               secondNumber=[];
-            }if(operator[operator.length-1]=="/"){
-                let theLastEquation=theSlice.split("/");
-            firstNumber[0]=theLastEquation[0];
-            secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
-                operator.splice(-1,1);
-                firstNumber=[];
-               secondNumber=[];
-            }
-            console.log(operator);
-            let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+                m[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
             let theFirstEqua=theFirstSlice.split("-");
             firstNumber[0]=theFirstEqua[0];
             secondNumber[0]=theFirstEqua[1];
              theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
             console.log(theFirst);
             numbers="";
-            z=parseFloat(theFirst[0])-parseFloat(theLast[0]);
+            z=parseFloat(theFirst[0])-parseFloat(m[0]);
             numbers+=z;
             $(".the-field").val(numbers);
           firstNumber=[];
           secondNumber=[];
           operator=[];
-          theLast=[];
           theFirst=[];
+               operator.splice(-1,1);
+               m=[0];
+              
+            }if(operator[operator.length-1]=="/"){
+                let theLastEquation=theSlice.split("/");
+            firstNumber[0]=theLastEquation[0];
+            secondNumber[0]=theLastEquation[1];
+                d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+            let theFirstEqua=theFirstSlice.split("-");
+            firstNumber[0]=theFirstEqua[0];
+            secondNumber[0]=theFirstEqua[1];
+             theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            console.log(theFirst);
+            numbers="";
+            z=parseFloat(theFirst[0])-parseFloat(d[0]);
+            numbers+=z;
+            $(".the-field").val(numbers);
+          firstNumber=[];
+          secondNumber=[];
+          operator=[];
+          theFirst=[];
+                operator.splice(-1,1);
+                d=[0];
+              
+            }
+            
+            
 
             
         }
@@ -413,60 +548,11 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
-    $(".result").on("click",function(){
-        if(operator.length>2&&operator[0]=="-"&&operator[1]=="-"){
-            
-            let sliceStart=numbers.lastIndexOf(operator[1]);
-            let theSlice=numbers.slice(sliceStart+1,numbers.length);
-            console.log(theSlice);
-            
-            console.log(firstNumber[0]);
-            console.log(secondNumber[0]);
-           if(operator[operator.length-1]=="*"){
-            let theLastEquation=theSlice.split("*");
-            firstNumber[0]=theLastEquation[0];
-            secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
-               operator.splice(-1,1);
-               firstNumber=[];
-               secondNumber=[];
-            }if(operator[operator.length-1]=="/"){
-                let theLastEquation=theSlice.split("/");
-            firstNumber[0]=theLastEquation[0];
-            secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
-                operator.splice(-1,1);
-                firstNumber=[];
-               secondNumber=[];
-            }
-            console.log(operator);
-            let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
-            let theFirstEqua=theFirstSlice.split("-");
-            firstNumber[0]=theFirstEqua[0];
-            secondNumber[0]=theFirstEqua[1];
-             theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
-            console.log(theFirst);
-            numbers="";
-            z=parseFloat(theFirst[0])-parseFloat(theLast[0]);
-            numbers+=z;
-            $(".the-field").val(numbers);
-          firstNumber=[];
-          secondNumber=[];
-          operator=[];
-          theLast=[];
-          theFirst=[];
-
-            
-        }
-        
-    })
-})
 
 
 
 
-
+//long equations
 $(document).ready(function(){
     $(".result").on("click",function(){
         if(operator.length>2&&operator[0]=="-"&&operator[1]=="+"){
@@ -481,35 +567,47 @@ $(document).ready(function(){
             let theLastEquation=theSlice.split("*");
             firstNumber[0]=theLastEquation[0];
             secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
-               operator.splice(-1,1);
-               firstNumber=[];
-               secondNumber=[];
-            }if(operator[operator.length-1]=="/"){
-                let theLastEquation=theSlice.split("/");
-            firstNumber[0]=theLastEquation[0];
-            secondNumber[0]=theLastEquation[1];
-                theLast[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
-                operator.splice(-1,1);
-                firstNumber=[];
-               secondNumber=[];
-            }
-            console.log(operator);
-            let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+                m[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
             let theFirstEqua=theFirstSlice.split("-");
             firstNumber[0]=theFirstEqua[0];
             secondNumber[0]=theFirstEqua[1];
              theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
             console.log(theFirst);
             numbers="";
-            z=parseFloat(theFirst[0])+parseFloat(theLast[0]);
+            z=parseFloat(theFirst[0])+parseFloat(m[0]);
             numbers+=z;
             $(".the-field").val(numbers);
           firstNumber=[];
           secondNumber=[];
           operator=[];
-          theLast=[];
           theFirst=[];
+               operator.splice(-1,1);
+               m=[0];
+               
+            }if(operator[operator.length-1]=="/"){
+                let theLastEquation=theSlice.split("/");
+            firstNumber[0]=theLastEquation[0];
+            secondNumber[0]=theLastEquation[1];
+                d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+            let theFirstEqua=theFirstSlice.split("-");
+            firstNumber[0]=theFirstEqua[0];
+            secondNumber[0]=theFirstEqua[1];
+             theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            console.log(theFirst);
+            numbers="";
+            z=parseFloat(theFirst[0])+parseFloat(d[0]);
+            numbers+=z;
+            $(".the-field").val(numbers);
+          firstNumber=[];
+          secondNumber=[];
+          operator=[];
+          theFirst=[];
+                operator.splice(-1,1);
+                d=[0];
+            }
+            
 
             
         }
@@ -520,7 +618,68 @@ $(document).ready(function(){
 
 
 
+//long equations
+/*$(document).ready(function(){
+    $(".result").on("click",function(){
+        if(operator.length>2&&operator[0]=="+"&&operator[1]=="+"){
+            
+            let sliceStart=numbers.lastIndexOf(operator[1]);
+            let theSlice=numbers.slice(sliceStart+1,numbers.length);
+            console.log(theSlice);
+            
+            console.log(firstNumber[0]);
+            console.log(secondNumber[0]);
+           if(operator[operator.length-1]=="*"){
+            let theLastEquation=theSlice.split("*");
+            firstNumber[0]=theLastEquation[0];
+            secondNumber[0]=theLastEquation[1];
+                m[0]=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+            let theFirstEqua=theFirstSlice.split("-");
+            firstNumber[0]=theFirstEqua[0];
+            secondNumber[0]=theFirstEqua[1];
+             theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            console.log(theFirst);
+            numbers="";
+            z=parseFloat(theFirst[0])+parseFloat(m[0]);
+            numbers+=z;
+            $(".the-field").val(numbers);
+          firstNumber=[];
+          secondNumber=[];
+          operator=[];
+          theFirst=[];
+               operator.splice(-1,1);
+               m=[0];
+               
+            }if(operator[operator.length-1]=="/"){
+                let theLastEquation=theSlice.split("/");
+            firstNumber[0]=theLastEquation[0];
+            secondNumber[0]=theLastEquation[1];
+                d[0]=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+                let theFirstSlice=numbers.slice(0,numbers.indexOf(operator[-1]));
+            let theFirstEqua=theFirstSlice.split("-");
+            firstNumber[0]=theFirstEqua[0];
+            secondNumber[0]=theFirstEqua[1];
+             theFirst[0]=parseFloat(firstNumber[0])-parseFloat(secondNumber[0]);
+            console.log(theFirst);
+            numbers="";
+            z=parseFloat(theFirst[0])+parseFloat(d[0]);
+            numbers+=z;
+            $(".the-field").val(numbers);
+          firstNumber=[];
+          secondNumber=[];
+          operator=[];
+          theFirst=[];
+                operator.splice(-1,1);
+                d=[0];
+            }
+            
 
+            
+        }
+        
+    })
+})*/
 
 
 
