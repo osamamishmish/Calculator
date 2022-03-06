@@ -15,6 +15,10 @@
     width:20%;
     margin:10px;
 }
+.operator{
+    width:20%;
+    margin:10px;
+}
 .reset{
     width:45%;
     
@@ -23,10 +27,7 @@
     width:45%;
     
 }
-.operator{
-    width:20%;
-    margin:10px;
-}
+
 .buttons{
     
     border-radius: 15px;
@@ -37,6 +38,7 @@
 .delete{
     width:20%;
     margin:10px;
+    font-size:20px;
     
 }
 .footer{
@@ -46,6 +48,9 @@
 }
 @media (min-width:765px) and (max-width:1488px){
     .button{
+        margin:5px;
+    }
+    .operator{
         margin:5px;
     }
     

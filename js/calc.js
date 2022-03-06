@@ -489,6 +489,11 @@ $(document).ready(function(){
                 "background":"white",
                 "fontSize":"20px",
             })
+            $(".operator").css({
+                "color":"hsl(224, 36%, 15%)",
+                "background":"white",
+                "fontSize":"20px",
+            })
             $(".delete ,.reset").css({
                 "background":"hsl(222, 26%, 31%)",
                 "color":"white",
@@ -579,6 +584,12 @@ $(document).ready(function(){
 })
 
 
+
+let times=document.querySelector(".multiple");
+
+let divideSign=document.querySelector(".divide");
+let plusSign=document.querySelector(".plus");
+let diffSign=document.querySelector(".subtract");
 //add the equation terms by keyboard
 $(document).ready(function(){
     $(".the-field").on("keyup",function(e){
@@ -606,18 +617,27 @@ $(document).ready(function(){
    if(e.keyCode===107){
         operator.push("+");
         numbers+="+";
+        
     }if(e.keyCode===111){
         operator.push("/");
         numbers+="/";
+        
     }if(e.keyCode===106){
         operator.push("*");
         numbers+="*";
+        
     }if(e.keyCode===109){
         operator.push("-");
         numbers+="-";
+        
     }
    })
 })
+
+
+
+
+
 
 
 //calculate result by Enter
@@ -628,6 +648,48 @@ $(document).ready(function(){
     theField.addEventListener("keypress",function(event){
         if(event.keyCode===13){
         return    theResult.click(); 
+        }
+        
+    })
+})
+
+let theOperator=document.querySelector(".operator");
+$(document).ready(function(){
+    theField.addEventListener("keypress",function(event){
+        if(event.keyCode===107){
+           return   theOperator.click();
+            
+        }
+        
+    })
+})
+
+
+
+$(document).ready(function(){
+    theField.addEventListener("keypress",function(event){
+        if(event.keyCode===111){
+            return theOperator.click();
+        }
+        
+    })
+})
+
+$(document).ready(function(){
+    theField.addEventListener("keypress",function(event){
+        if(event.keyCode===106){
+            return theOperator.click();
+        }
+        
+    })
+})
+
+
+
+$(document).ready(function(){
+    theField.addEventListener("keypress",function(event){
+        if(event.keyCode===109){
+            return theOperator.click();
         }
         
     })
