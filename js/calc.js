@@ -494,14 +494,19 @@ $(document).ready(function(){
                 "background":"white",
                 "fontSize":"20px",
             })
-            $(".delete ,.reset").css({
-                "background":"hsl(222, 26%, 31%)",
+            $(".delete, .reset").css({
+                "background":"hsl(225, 21%, 49%)",
                 "color":"white",
             });
             $(".the-header").css({
                 "color":"white",
                 "fontSize":"20px",
             });
+            $(".result").css({
+                "background":"darkred",
+                "color":"white",
+            })
+           
     $(".form-range").on("click",function(){
         if($(".form-range").val()==2){
             document.body.style.background="hsl(0, 0%, 90%)";
@@ -512,11 +517,13 @@ $(document).ready(function(){
                 "fontSize":"20px",
                 "paddingLeft":"20px",
             });
-            $(".button,.delete").css({
+            $(".button,.delete ,.operator").css({
                 "color":"black",
                 "background":"white",
                 "fontSize":"20px",
             });
+          
+            
             $(".the-header").css({
                 "color":"black",
                 "fontSize":"20px",
@@ -538,20 +545,25 @@ $(document).ready(function(){
                 "fontSize":"20px",
                 "paddingLeft":"20px",
             });
-            $(".button").css({
+            $(".button ,.operator").css({
                 "color":"hsl(224, 36%, 15%)",
                 "background":"white",
                 "fontSize":"20px",
             })
-            $(".delete,.reset").css({
-                "background":"hsl(222, 26%, 31%)",
+            $(".delete, .reset").css({
+                "background":"hsl(225, 21%, 49%)",
                 "color":"white",
             });
             $(".the-header").css({
                 "color":"white",
                 "fontSize":"20px",
             });
-            $(".result").addClass("btn-danger");
+            $(".result").css({
+                "background":"darkred",
+                "color":"white",
+            })
+        
+            
         }if($(".form-range").val()==3){
             document.body.style.background="hsl(268, 75%, 9%)";
             $(".buttons").css("background","hsl(268, 71%, 12%)");
@@ -561,7 +573,7 @@ $(document).ready(function(){
                 "fontSize":"20px",
                 "paddingLeft":"20px",
             })
-            $(".button , .delete").css({
+            $(".button , .delete ,.operator").css({
                 "color":"hsl(52, 100%, 62%)",
                 "background":"hsl(281, 89%, 26%)",
                 "fontSize":"20px",
@@ -570,13 +582,14 @@ $(document).ready(function(){
                 "color":"hsl(52, 100%, 62%)",
                 "fontSize":"20px",
             })
-            $(".reset,.delete").css({
-                "background":"hsl(185, 42%, 37%)",
+            $(".reset").removeClass("btn-secondary");
+            $(".result").removeClass("btn-danger").css({
+                "background":"hsl(176, 100%, 44%)",
                 "color":"white",
             })
-            $(".result").removeClass("btn-danger").css({
-                "background":"hsl(25, 98%, 40%)",
-                "color":"white",
+            $(".reset,.delete").css({
+                "background":"hsl(281, 89%, 26%)",
+                "color":"hsl(52, 100%, 62%)",
             })
         }
     })
