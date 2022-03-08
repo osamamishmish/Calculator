@@ -585,11 +585,6 @@ $(document).ready(function(){
 
 
 
-let times=document.querySelector(".multiple");
-
-let divideSign=document.querySelector(".divide");
-let plusSign=document.querySelector(".plus");
-let diffSign=document.querySelector(".subtract");
 //add the equation terms by keyboard
 $(document).ready(function(){
     $(".the-field").on("keyup",function(e){
@@ -613,23 +608,19 @@ $(document).ready(function(){
             numbers+="8";
         }if(e.keyCode===105){
             numbers+="9";
+        }if(e.keyCode===110){
+            numbers+=".";
         }
    if(e.keyCode===107){
-        operator.push("+");
-        numbers+="+";
-        
+        return $(".plus").click();
     }if(e.keyCode===111){
-        operator.push("/");
-        numbers+="/";
+        return $(".divide").click();
         
     }if(e.keyCode===106){
-        operator.push("*");
-        numbers+="*";
+        return $(".multiple").click();
         
     }if(e.keyCode===109){
-        operator.push("-");
-        numbers+="-";
-        
+        return $(".subtract").click();
     }
    })
 })
@@ -653,47 +644,7 @@ $(document).ready(function(){
     })
 })
 
-let theOperator=document.querySelector(".operator");
-$(document).ready(function(){
-    theField.addEventListener("keypress",function(event){
-        if(event.keyCode===107){
-           return   theOperator.click();
-            
-        }
-        
-    })
-})
 
-
-
-$(document).ready(function(){
-    theField.addEventListener("keypress",function(event){
-        if(event.keyCode===111){
-            return theOperator.click();
-        }
-        
-    })
-})
-
-$(document).ready(function(){
-    theField.addEventListener("keypress",function(event){
-        if(event.keyCode===106){
-            return theOperator.click();
-        }
-        
-    })
-})
-
-
-
-$(document).ready(function(){
-    theField.addEventListener("keypress",function(event){
-        if(event.keyCode===109){
-            return theOperator.click();
-        }
-        
-    })
-})
 
 
 //DELETE BY backspace
