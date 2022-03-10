@@ -1,0 +1,3 @@
+# Calculator
+
+Solution with eval()
