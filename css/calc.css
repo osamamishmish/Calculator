@@ -5,6 +5,9 @@
 }
 .the-header{
     margin-top:100px;
+    display:flex;
+    flex-flow:row;
+   
 }
 .the-field{
     border-radius:5px;
@@ -46,6 +49,26 @@
     display:flex;
     justify-content:space-around;
 }
+.theme{
+    display: flex;
+    flex-flow:column;
+    
+}
+ul li{
+    list-style-type:none;
+    display:flex;
+    justify-content: space-between;
+    padding-left:10px;
+    font-size:smaller;
+    
+}
+ul{
+    display:flex;
+    flex-flow:row;
+    margin-bottom:-10px;
+    
+}
+
 @media (min-width:765px) and (max-width:1488px){
     .button{
         margin:5px;

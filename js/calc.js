@@ -601,40 +601,45 @@ $(document).ready(function(){
 //add the equation terms by keyboard
 $(document).ready(function(){
     $(".the-field").on("keyup",function(e){
-        if(e.keyCode===96){
+        if(e.keyCode===96||e.keyCode===48){
             numbers+="0";
-        }if(e.keyCode===97){
+        }if(e.keyCode===97||e.keyCode===49){
             numbers+="1";
-        }if(e.keyCode===98){
+        }if(e.keyCode===98||e.keyCode===50){
             numbers+="2";
-        }if(e.keyCode===99){
+        }if(e.keyCode===99||e.keyCode===51){
             numbers+="3";
-        }if(e.keyCode===100){
+        }if(e.keyCode===100||e.keyCode===52){
             numbers+="4";
-        }if(e.keyCode===101){
+        }if(e.keyCode===101||e.keyCode===53){
             numbers+="5";
-        }if(e.keyCode===102){
+        }if(e.keyCode===102||e.keyCode===54){
             numbers+="6";
-        }if(e.keyCode===103){
+        }if(e.keyCode===103||e.keyCode===55){
             numbers+="7";
-        }if(e.keyCode===104){
+        }if(e.keyCode===104||e.keyCode===56){
             numbers+="8";
-        }if(e.keyCode===105){
+        }if(e.keyCode===105||e.keyCode===57){
             numbers+="9";
-        }if(e.keyCode===110){
+        }if(e.keyCode===110||e.keyCode==190){
             numbers+=".";
         }
-   if(e.keyCode===107){
+   if(e.keyCode===107||e.keyCode===187){
         return $(".plus").click();
-    }if(e.keyCode===111){
+    }if(e.keyCode===111||e.keyCode===220){
         return $(".divide").click();
         
     }if(e.keyCode===106){
         return $(".multiple").click();
         
-    }if(e.keyCode===109){
+    }if(e.keyCode===109||e.keyCode===189){
         return $(".subtract").click();
+    }else{
+        numbers+=$(this).text();
+        numbers.replace($(this).text(),"");
+        $(".the-field").val(numbers)
     }
+    
    })
 })
 
