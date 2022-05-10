@@ -289,7 +289,131 @@ $(document).ready(function(){
     })
 })
 
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>2&&operator[0]=="+"&&operator[1]=="*"){
+            let end=numbers.indexOf(operator[-1]);
+            let start=numbers.indexOf(operator[0]);
+            let theSlice=numbers.slice(start+1,end);
+            console.log(theSlice);
+            let equation=theSlice.split("*");
+            firstNumber[0]=equation[0];
+            secondNumber[0]=equation[1];
+                z=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
 
+                console.log(z);
+                operator.splice(operator.indexOf(operator[1]),1);
+                let lastOperator=numbers.indexOf(operator[0]);
+                let sliced=numbers.slice(0,lastOperator+1); 
+                numbers="";
+                console.log(sliced);
+                numbers+=sliced;
+                numbers+=z;
+                numbers+=operator[1];
+                console.log(numbers);
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>2&&operator[0]=="-"&&operator[1]=="*"){
+            let end=numbers.indexOf(operator[-1]);
+            let start=numbers.indexOf(operator[0]);
+            let theSlice=numbers.slice(start+1,end);
+            console.log(theSlice);
+            let equation=theSlice.split("*");
+            firstNumber[0]=equation[0];
+            secondNumber[0]=equation[1];
+                z=parseFloat(firstNumber[0])*parseFloat(secondNumber[0]);
+
+                console.log(z);
+                operator.splice(operator.indexOf(operator[1]),1);
+                let lastOperator=numbers.indexOf(operator[0]);
+                let sliced=numbers.slice(0,lastOperator+1); 
+                numbers="";
+                console.log(sliced);
+                numbers+=sliced;
+                numbers+=z;
+                numbers+=operator[1];
+                console.log(numbers);
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>2&&operator[0]=="+"&&operator[1]=="/"){
+            let end=numbers.indexOf(operator[-1]);
+            let start=numbers.indexOf(operator[0]);
+            let theSlice=numbers.slice(start+1,end);
+            console.log(theSlice);
+            let equation=theSlice.split("/");
+            firstNumber[0]=equation[0];
+            secondNumber[0]=equation[1];
+                z=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+
+                console.log(z);
+                operator.splice(operator.indexOf(operator[1]),1);
+                let lastOperator=numbers.indexOf(operator[0]);
+                let sliced=numbers.slice(0,lastOperator+1); 
+                numbers="";
+                console.log(sliced);
+                numbers+=sliced;
+                numbers+=z;
+                numbers+=operator[1];
+                console.log(numbers);
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
+
+
+
+$(document).ready(function(){
+    $(".operator").on("click",function(){
+        if(operator.length>2&&operator[0]=="-"&&operator[1]=="/"){
+            let end=numbers.indexOf(operator[-1]);
+            let start=numbers.indexOf(operator[0]);
+            let theSlice=numbers.slice(start+1,end);
+            console.log(theSlice);
+            let equation=theSlice.split("/");
+            firstNumber[0]=equation[0];
+            secondNumber[0]=equation[1];
+                z=parseFloat(firstNumber[0])/parseFloat(secondNumber[0]);
+
+                console.log(z);
+                operator.splice(operator.indexOf(operator[1]),1);
+                let lastOperator=numbers.indexOf(operator[0]);
+                let sliced=numbers.slice(0,lastOperator+1); 
+                numbers="";
+                console.log(sliced);
+                numbers+=sliced;
+                numbers+=z;
+                numbers+=operator[1];
+                console.log(numbers);
+                
+                $(".the-field").val(numbers);
+                firstNumber=[];
+                secondNumber=[];
+        }
+    })
+})
 
 
 
