@@ -289,6 +289,9 @@ $(document).ready(function(){
     })
 })
 
+
+
+
 $(document).ready(function(){
     $(".operator").on("click",function(){
         if(operator.length>2&&operator[0]=="+"&&operator[1]=="*"){
